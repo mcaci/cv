@@ -19,4 +19,9 @@ jobs:
             --output=cv.docx
             cv.md
       - run : ls -l
-      
+      - uses: EndBug/add-and-commit@v4
+        with:
+          add: cv.docx
+          message: 'Add docx cv'
+        env:   # This is necessary in order to push a commit to the repo
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
