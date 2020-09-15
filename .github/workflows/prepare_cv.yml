@@ -10,7 +10,9 @@ jobs:
   convert_to_docx:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2v2
+      - run: pwd
+      - run : ls -l
       - uses: docker://pandoc/core:2.9
         with:
           args: >-  # allows you to break string into multiple lines
@@ -21,7 +23,9 @@ jobs:
   convert_via_pandoc:
     runs-on: ubuntu-18.04
     steps:
-      - run: echo "foo" > input.txt  # create an example file
+      - run: echo "foo" > input.txt  # create an example filev2
+      - run: pwd
+      - run : ls -l
       - uses: docker://pandoc/core:2.9
         with:
           args: >-  # allows you to break string into multiple lines
