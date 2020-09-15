@@ -25,3 +25,23 @@ jobs:
           message: 'Add docx cv'
         env:   # This is necessary in order to push a commit to the repo
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+
+  convert_to_pdf:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker://pandoc/latex:2.9
+        with:
+          args: >-  # allows you to break string into multiple lines
+            --standalone
+            -w pdf
+            --output=cv.pdf
+            cv.md
+      - run : ls -l
+      - uses: EndBug/add-and-commit@v4
+        with:
+          add: cv.pdf
+          message: 'Add pdf cv'
+        env:   # This is necessary in order to push a commit to the repo
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
