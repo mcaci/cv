@@ -18,8 +18,8 @@ jobs:
             --standalone
             -r markdown
             -w docx
-            --output=cv.docx
-            cv.md # gets appended to pandoc command
+            --output=/github/workspace/cv.docx
+            /github/workspace/cv.md # gets appended to pandoc command
       - uses: actions/upload-artifact@master
         with:
           name: cv.docx
