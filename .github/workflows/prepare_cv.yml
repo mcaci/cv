@@ -10,6 +10,7 @@ jobs:
   convert_to_docx:
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v2
       - uses: docker://pandoc/core:2.9
         with:
           args: >- # allows you to break string into multiple lines
@@ -22,6 +23,7 @@ jobs:
   convert_to_pdf:
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v2
       - uses: docker:///latex:2.9
         with:
           args: >- # allows you to break string into multiple lines
