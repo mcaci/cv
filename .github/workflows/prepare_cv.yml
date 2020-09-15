@@ -36,6 +36,7 @@ jobs:
           args: >-  # allows you to break string into multiple lines
             --standalone
             -w pdf
+            --pdf-engine=context
             --output=cv.pdf
             cv.md
       - run : ls -l
