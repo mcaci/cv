@@ -11,8 +11,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: echo $(pwd)
-      - run : echo $(ls -l)
       - uses: docker://pandoc/core:2.9
         with:
           args: >-  # allows you to break string into multiple lines
@@ -20,16 +18,5 @@ jobs:
             -w docx
             --output=cv.docx
             cv.md
-
-  convert_via_pandoc:
-    runs-on: ubuntu-18.04
-    steps:
-      - run: echo "foo" > input.txt  # create an example filev2
-      - run: pwd
       - run : ls -l
-      - uses: docker://pandoc/core:2.9
-        with:
-          args: >-  # allows you to break string into multiple lines
-            --standalone
-            --output=index.html
-            input.txt
+      
