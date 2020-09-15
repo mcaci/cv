@@ -10,9 +10,9 @@ jobs:
   convert_to_docx:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2v2
-      - run: pwd
-      - run : ls -l
+      - uses: actions/checkout@v2
+      - run: echo $(pwd)
+      - run : echo $(ls -l)
       - uses: docker://pandoc/core:2.9
         with:
           args: >-  # allows you to break string into multiple lines
