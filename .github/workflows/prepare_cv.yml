@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - run: cd /github/workspace
       - uses: docker://pandoc/core:2.9
         with:
           args: >- # allows you to break string into multiple lines
@@ -19,11 +20,15 @@ jobs:
             -w docx
             --output=cv.docx
             cv.md # gets appended to pandoc command
+      - uses: actions/upload-artifact@master
+        with:
+          name: cv.docx
 
   convert_to_pdf:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - run: cd /github/workspace
       - uses: docker:///latex:2.9
         with:
           args: >- # allows you to break string into multiple lines
@@ -33,3 +38,6 @@ jobs:
             --pdf-engine=context
             --output=cv.pdf
             cv.md # gets appended to pandoc command
+      - uses: actions/upload-artifact@master
+        with:
+          name: cv.pdf
