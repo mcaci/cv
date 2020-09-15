@@ -11,33 +11,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: ls -lR
       - uses: docker://pandoc/core:2.9
         with:
-          args: >- # allows you to break string into multiple lines
+          args: >-  # allows you to break string into multiple lines
             --standalone
-            -r markdown
             -w docx
-            --output=/github/workspace/cv.docx
-            /github/workspace/cv.md # gets appended to pandoc command
-      - uses: actions/upload-artifact@master
-        with:
-          name: cv.docx
-
-  convert_to_pdf:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-      - run: cd /github/workspace
-      - uses: docker:///latex:2.9
-        with:
-          args: >- # allows you to break string into multiple lines
-            --standalone
-            -r markdown
-            -w pdf
-            --pdf-engine=context
-            --output=cv.pdf
-            cv.md # gets appended to pandoc command
-      - uses: actions/upload-artifact@master
-        with:
-          name: cv.pdf
+            doc.md
