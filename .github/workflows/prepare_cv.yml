@@ -17,7 +17,8 @@ jobs:
         with:
           args: >-  # allows you to break string into multiple lines
             --standalone
-            --output=cv.html
+            --write=docx
+            --output=cv.docx
             cv.md
 
   convert_via_pandoc:
