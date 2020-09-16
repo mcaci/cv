@@ -31,11 +31,11 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://pandoc/latex:2.9
+      - uses: docker://pandoc/latex:2.9 # add --pdf-engine=context if possible
         with:
           args: >-  # allows you to break string into multiple lines
             --standalone
-            -w pdf # --pdf-engine=context if possible
+            -w pdf
             --output=cv.pdf
             cv.md
       - run : ls -l
