@@ -27,3 +27,11 @@ and to create the pdf document please run
 ```shell
 make pdf
 ```
+
+## References
+
+- Documentation to create a `md` resume: [https://mszep.github.io/pandoc_resume/](https://mszep.github.io/pandoc_resume/)
+- Context pdf engine: [https://wiki.contextgarden.net/Main_Page](https://wiki.contextgarden.net/Main_Page)
+- Pandoc document converter: [https://pandoc.org/index.html](https://pandoc.org/index.html)
+- Pandoc with GitHub Actions: [https://github.com/pandoc/pandoc-action-example](https://github.com/pandoc/pandoc-action-example)
+- Alternative guide to pdf creation from `md`: [https://github.com/alexeygumirov/pandoc-for-pdf-how-to](https://github.com/alexeygumirov/pandoc-for-pdf-how-to)
